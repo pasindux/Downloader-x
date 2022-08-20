@@ -1,5 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from database.blacklist import check_blacklist
+from database.userchats import add_chat
 
 @Client.on_message(filters.private & filters.command(['start']))
 async def start(c:Client, m:Message):
