@@ -20,11 +20,12 @@ from plugins.progress import huanbytes, humanbytes
 from plugins import callbacks
 from Translation import Translation
 from plugins.random import random_char
+from pyrogram import enums
 
 @Client.on_message(filters.private & filters.regex(pattern="http://"))
 async def echo(bot, update):
     logger.info(update.from_user)
-    
+    await update.reply_chat_action(action=enums.ChatAction.TYPING)
     fuser = update.from_user.id
     if check_blacklist(fuser):
         await update.reply_text("**Sorry! You are Banned!**")
@@ -36,7 +37,7 @@ async def echo(bot, update):
     youtube_dl_username = None
     youtube_dl_password = None
     file_name = None
-
+    await update.message.reply_chat_action(action=enums.ChatAction.RECORD_VIDEO)
     print(url)
     if "|" in url:
         url_parts = url.split("|")
