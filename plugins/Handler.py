@@ -22,6 +22,14 @@ from plugins.random import random_char
 @Client.on_message(filters.private & filters.regex(pattern="http://"))
 async def echo(bot, update):
     logger.info(update.from_user)
+    
+    fuser = update.from_user.id
+    if check_blacklist(fuser):
+        await update.reply_text("**Sorry! You are Banned!**")
+        return
+      
+    add_chat(fuser)
+    
     url = update.text
     youtube_dl_username = None
     youtube_dl_password = None
