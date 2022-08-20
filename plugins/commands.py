@@ -11,7 +11,7 @@ async def start(c:Client, m:Message):
         await m.reply_text("**Sorry! You are Banned!**")
         return
     add_chat(fuser)
-    await m.reply_chat_action(enums.ChatAction.RECORD_VIDEO)
+    await m.reply_chat_action(enums.ChatAction.TYPING)
     await m.reply_text(
         text=f"**Hey 👋 {m.from_user.mention} Dear! Welcome**\n\n**First you should get an idea about what can this bot upload and what links are supported/how to send links for me by pressing help**",
         reply_markup=InlineKeyboardMarkup([
