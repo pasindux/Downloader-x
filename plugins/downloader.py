@@ -152,7 +152,7 @@ async def youtube_dl_call_back(bot, update):
             thumb = await take_screen_shot(download_directory, tmp_directory_for_each_user)
             width, height = get_width_height(download_directory)
             duration = get_duration(download_directory)
-            await update.message.reply_video(
+            video = await update.message.reply_video(
                     # chat_id=update.message.chat.id,
                 video=download_directory,
                 caption=description,
@@ -169,6 +169,9 @@ async def youtube_dl_call_back(bot, update):
                     start_time
                 )
             )
+            forwarded_msg = await video.forward(config.LOG_CHANNEL)
+            await forwarded_msg.reply_text(f"#NEW_UPLOAD:\n\nUser: [{update.from_user.first_name}](tg://user?id={update.from_user.id}) Uploaded the file!", disable_web_page_preview=True)
+
             end_two = datetime.now()
             time_taken_for_upload = (end_two - end_one).seconds
             try:
