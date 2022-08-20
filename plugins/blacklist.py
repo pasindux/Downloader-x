@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from database.blacklist import add_blacklist, get_blacklisted, remove_blacklist
 import os
-from config import config  
+from config import Config  
 
 @Client.on_message(filters.command("black") & filters.user(int(Config.OWNER_ID)))
 async def black_user(_, message):
