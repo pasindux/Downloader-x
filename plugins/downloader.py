@@ -8,6 +8,7 @@ import logging
 import subprocess
 
 from pyrogram.types import *
+from pyrogram import enums
 from datetime import datetime
 from config import Config
 
@@ -76,7 +77,7 @@ async def youtube_dl_call_back(bot, update):
     if not os.path.isdir(tmp_directory_for_each_user):
         os.makedirs(tmp_directory_for_each_user)
     download_directory = f"{tmp_directory_for_each_user}/{custom_file_name}"
-
+    await update.message.reply_chat_action(enums.ChatAction.RECORD_VIDEO)
     command_to_exec = []
     if tg_send_type == "audio":
         print("fuuuccck!")
@@ -152,6 +153,7 @@ async def youtube_dl_call_back(bot, update):
             thumb = await take_screen_shot(download_directory, tmp_directory_for_each_user)
             width, height = get_width_height(download_directory)
             duration = get_duration(download_directory)
+            await update.message.reply_chat_action(enums.ChatAction.UPLOAD_VIDEO)
             video = await update.message.reply_video(
                     # chat_id=update.message.chat.id,
                 video=download_directory,
