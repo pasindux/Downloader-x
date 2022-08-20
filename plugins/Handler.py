@@ -6,6 +6,8 @@ import logging
 
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Thumbnail, Message
+from database.blacklist import check_blacklist
+from database.userchats import add_chat
 
 from config import Config
 
