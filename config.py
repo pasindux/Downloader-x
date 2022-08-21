@@ -11,7 +11,7 @@ class Config():
 
     # file /video dpwnload location
     DOWNLOAD_LOCATION = "./DOWNLOADS"
-    OWNER_ID = os.environ.get("OWNER_ID", 1897713614) # Your(owner's) telegram id
+    OWNER_ID = os.environ.get("OWNER_ID") # Your(owner's) telegram id
     #If deploying on vps edit the above value as example := OWNER_ID = Your-telegram id-without-inverted-commas
     
     REDIS_URI = os.environ.get("REDIS_URI", "None") # Get This Value from http://redislabs.com/try-free (If you don't know how to obtain the a video tutorial is available here:- https://t.me/botzupdate/5)
