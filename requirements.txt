@@ -4,3 +4,4 @@ tgcrypto
 ffmpeg
 hachoir
 youtube-dl
+redis

@@ -11,13 +11,13 @@ class Config():
 
     # file /video dpwnload location
     DOWNLOAD_LOCATION = "./DOWNLOADS"
-
-    MEGA_EMAIL = os.environ.get("MEGA_EMAIL", "None")
-    # If deploying on vps edit the above value as example := Mega_email = "Your-Mega_email-inside-inverted-commas."
-
-    # This is not necessary! Enter your mega password only if you have a mega.nz account with pro/business features.
-    MEGA_PASSWORD = os.environ.get("MEGA_PASSWORD", "None")
-    # If deploying on vps edit the above value as example := Mega_password = "Your-Mega_password-inside-inverted-commas."
+    OWNER_ID = os.environ.get("OWNER_ID") # Your(owner's) telegram id
+    #If deploying on vps edit the above value as example := OWNER_ID = Your-telegram id-without-inverted-commas
+    
+    REDIS_URI = os.environ.get("REDIS_URI", "None") # Get This Value from http://redislabs.com/try-free (If you don't know how to obtain the a video tutorial is available here:- https://t.me/botzupdate/5)
+    #If deploying on vps edit the above value as example := REDIS_URI = "Your-Redis-Endpoint-inside-inverted-commas."
+    
+    REDIS_PASS = os.environ.get("REDIS_PASS", "None")
     # Telegram maximum file upload size
     TG_MAX_FILE_SIZE = 4194304000
 
