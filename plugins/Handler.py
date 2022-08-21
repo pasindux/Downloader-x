@@ -28,7 +28,7 @@ async def echo(bot, update):
     await update.reply_chat_action(action=enums.ChatAction.TYPING)
     fuser = update.from_user.id
     if check_blacklist(fuser):
-        await update.reply_text("**Sorry! You are Banned!**")
+        await update.reply_text("**Sorry! You are Banned!!**")
         return
       
     add_chat(fuser)
