@@ -37,7 +37,7 @@ async def echo(bot, update):
     youtube_dl_username = None
     youtube_dl_password = None
     file_name = None
-    await update.message.reply_chat_action(action=enums.ChatAction.RECORD_VIDEO)
+    await update.reply_chat_action(action=enums.ChatAction.RECORD_VIDEO)
     print(url)
     if "|" in url:
         url_parts = url.split("|")
